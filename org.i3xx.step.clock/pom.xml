@@ -1,0 +1,179 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.i3xx.step</groupId>
+  <artifactId>org.i3xx.step.clock</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>bundle</packaging>
+  <url>http://maven.apache.org</url>
+  <name>NordApp OfficeBase :: clock</name>
+  
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+  
+  <parent>
+    <groupId>org.i3xx.util</groupId>
+    <artifactId>parent-project</artifactId>
+    <version>0.0.4</version>
+  </parent>
+  
+  <properties>
+  	<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+  	<project.name>NordApp OfficeBase :: clock</project.name>
+  	<project.organizationName>I.D.S. DialogSysteme GmbH</project.organizationName>
+  	<project.inceptionYear>2014</project.inceptionYear>
+  </properties>
+  
+  <build>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>maven-bundle-plugin</artifactId>
+			<version>2.3.7</version>
+			<extensions>true</extensions>
+			<configuration>
+				<instructions>
+					
+					<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
+					<Bundle-Name>${project.name}</Bundle-Name>
+					<Bundle-Version>${project.version}</Bundle-Version>
+					<Bundle-Activator></Bundle-Activator>
+					<Embed-Dependency></Embed-Dependency>
+					<Export-Package>
+						org.i3xx.step.clock.service.impl,
+						org.i3xx.step.clock.service.model,
+						org.i3xx.step.clock.util
+					</Export-Package>
+					<!-- *;version="0";resolution:=optional -->
+					<Import-Package>
+						org.apache.commons.codec.binary,
+						org.osgi.service.blueprint,
+						org.osgi.framework,
+						org.slf4j
+					</Import-Package>
+					<Private-Package></Private-Package>
+					<!--<Export-Service></Export-Service>-->
+				</instructions>
+			</configuration>
+		</plugin>
+		
+		<plugin>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<configuration>
+				<systemPropertyVariables>
+					<workspace.home>${basedir}</workspace.home>
+				</systemPropertyVariables>
+			</configuration>		
+		</plugin>
+		
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>license-maven-plugin</artifactId>
+			<version>1.8</version>
+			<configuration>
+				<organizationName>${project.organizationName}</organizationName>
+				<inceptionYear>${project.inceptionYear}</inceptionYear>
+				<projectName>${project.name}</projectName>
+				<licenseName>apache_v2</licenseName>
+			</configuration>
+			<executions>
+				<execution>
+					<id>update-project-license</id>
+					<goals>
+						<goal>update-project-license</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>update-file-header</id>
+					<goals>
+						<goal>update-file-header</goal>
+					</goals>
+					<phase>process-sources</phase>
+					<configuration>
+						<roots>
+							<root>src/main/java</root>
+							<root>src/test/java</root>
+						</roots>
+					</configuration>
+				</execution>
+				<execution>
+					<id>download-licenses</id>
+					<goals>
+						<goal>download-licenses</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>		
+		
+	</plugins>
+	
+  	<resources>
+  		<resource>
+  			<directory></directory>
+  			<includes>
+  				<include>OSGI-INF/**/*.*</include>
+  			</includes>
+  		</resource>
+  	</resources>
+
+  	<pluginManagement>
+  		<plugins>
+  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+  			<plugin>
+  				<groupId>org.eclipse.m2e</groupId>
+  				<artifactId>lifecycle-mapping</artifactId>
+  				<version>1.0.0</version>
+  				<configuration>
+  					<lifecycleMappingMetadata>
+  						<pluginExecutions>
+  							<pluginExecution>
+  								<pluginExecutionFilter>
+  									<groupId>
+  										org.codehaus.mojo
+  									</groupId>
+  									<artifactId>
+  										license-maven-plugin
+  									</artifactId>
+  									<versionRange>
+  										[1.8,)
+  									</versionRange>
+  									<goals>
+  										<goal>
+  											update-project-license
+  										</goal>
+  										<goal>
+  											update-file-header
+  										</goal>
+  									</goals>
+  								</pluginExecutionFilter>
+  								<action>
+  									<ignore></ignore>
+  								</action>
+  							</pluginExecution>
+  						</pluginExecutions>
+  					</lifecycleMappingMetadata>
+  				</configuration>
+  			</plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+  
+  <dependencies>
+	<dependency>
+		<groupId>commons-codec</groupId>
+		<artifactId>commons-codec</artifactId>
+		<version>1.10</version>
+	</dependency>
+  	<dependency>
+  		<groupId>org.osgi</groupId>
+  		<artifactId>core</artifactId>
+  		<version>4.3.0</version>
+  	</dependency>
+  </dependencies>
+  <description>A timer using the crontab syntax and additional binary input to provide a resolution of one second (1000 ms / 1000 millis / 1s). The timer uses the whiteboard pattern to notify the clients. There are only a few dependencies to commons-codec, osgi and osgi-blueprint. The bundle 'org.i3xx.step/org.i3xx.step.clockmongo' provides a store for the clock configuration based on mongodb. The additional dependency is 'org.mongodb/mongo-java-driver'. The bundle 'org.i3xx.util/org.i3xx.util.whiteboard' can be used to avoid a dependency to bundles used. In other words, your bundle can use the clock but need no dependency to the bundle 'org.i3xx.step.clock'. Take a look at the description there.</description>
+</project>
