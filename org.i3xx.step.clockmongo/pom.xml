@@ -17,9 +17,9 @@
   </licenses>
   
   <parent>
-    <groupId>org.i3xx.util</groupId>
+    <groupId>org.i3xx.project</groupId>
     <artifactId>parent-project</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.6-SNAPSHOT</version>
   </parent>
   
   <properties>
