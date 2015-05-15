@@ -17,9 +17,9 @@
   </licenses>
   
   <parent>
-    <groupId>org.i3xx.util</groupId>
+    <groupId>org.i3xx.project</groupId>
     <artifactId>parent-project</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.6-SNAPSHOT</version>
   </parent>
   
   <properties>
@@ -170,9 +170,9 @@
 		<version>1.10</version>
 	</dependency>
   	<dependency>
-  		<groupId>org.osgi</groupId>
-  		<artifactId>core</artifactId>
-  		<version>4.3.0</version>
+		<groupId>org.osgi</groupId>
+		<artifactId>org.osgi.core</artifactId>
+		<version>4.3.1</version>
   	</dependency>
   </dependencies>
   <description>A timer using the crontab syntax and additional binary input to provide a resolution of one second (1000 ms / 1000 millis / 1s). The timer uses the whiteboard pattern to notify the clients. There are only a few dependencies to commons-codec, osgi and osgi-blueprint. The bundle 'org.i3xx.step/org.i3xx.step.clockmongo' provides a store for the clock configuration based on mongodb. The additional dependency is 'org.mongodb/mongo-java-driver'. The bundle 'org.i3xx.util/org.i3xx.util.whiteboard' can be used to avoid a dependency to bundles used. In other words, your bundle can use the clock but need no dependency to the bundle 'org.i3xx.step.clock'. Take a look at the description there.</description>
