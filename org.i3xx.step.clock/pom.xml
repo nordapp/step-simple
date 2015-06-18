@@ -2,10 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.i3xx.step</groupId>
   <artifactId>org.i3xx.step.clock</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <url>http://maven.apache.org</url>
   <name>NordApp OfficeBase :: clock</name>
+  <description>A timer using the crontab syntax and additional binary input to provide a resolution of one second (1000 ms / 1000 millis / 1s). The timer uses the whiteboard pattern to notify the clients. There are only a few dependencies to commons-codec, osgi and osgi-blueprint. The bundle 'org.i3xx.step/org.i3xx.step.clockmongo' provides a store for the clock configuration based on mongodb. The additional dependency is 'org.mongodb/mongo-java-driver'. The bundle 'org.i3xx.util/org.i3xx.util.whiteboard' can be used to avoid a dependency to bundles used. In other words, your bundle can use the clock but need no dependency to the bundle 'org.i3xx.step.clock'. Take a look at the description there.</description>
   
   <licenses>
     <license>
@@ -17,15 +18,13 @@
   </licenses>
   
   <parent>
-    <groupId>org.i3xx.project</groupId>
+    <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-project</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
   </parent>
   
   <properties>
-  	<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-  	<project.name>NordApp OfficeBase :: clock</project.name>
-  	<project.organizationName>I.D.S. DialogSysteme GmbH</project.organizationName>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<project.inceptionYear>2014</project.inceptionYear>
   </properties>
   
@@ -62,54 +61,6 @@
 			</configuration>
 		</plugin>
 		
-		<plugin>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<configuration>
-				<systemPropertyVariables>
-					<workspace.home>${basedir}</workspace.home>
-				</systemPropertyVariables>
-			</configuration>		
-		</plugin>
-		
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>license-maven-plugin</artifactId>
-			<version>1.8</version>
-			<configuration>
-				<organizationName>${project.organizationName}</organizationName>
-				<inceptionYear>${project.inceptionYear}</inceptionYear>
-				<projectName>${project.name}</projectName>
-				<licenseName>apache_v2</licenseName>
-			</configuration>
-			<executions>
-				<execution>
-					<id>update-project-license</id>
-					<goals>
-						<goal>update-project-license</goal>
-					</goals>
-				</execution>
-				<execution>
-					<id>update-file-header</id>
-					<goals>
-						<goal>update-file-header</goal>
-					</goals>
-					<phase>process-sources</phase>
-					<configuration>
-						<roots>
-							<root>src/main/java</root>
-							<root>src/test/java</root>
-						</roots>
-					</configuration>
-				</execution>
-				<execution>
-					<id>download-licenses</id>
-					<goals>
-						<goal>download-licenses</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>		
-		
 	</plugins>
 	
   	<resources>
@@ -120,49 +71,8 @@
   			</includes>
   		</resource>
   	</resources>
-
-  	<pluginManagement>
-  		<plugins>
-  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-  			<plugin>
-  				<groupId>org.eclipse.m2e</groupId>
-  				<artifactId>lifecycle-mapping</artifactId>
-  				<version>1.0.0</version>
-  				<configuration>
-  					<lifecycleMappingMetadata>
-  						<pluginExecutions>
-  							<pluginExecution>
-  								<pluginExecutionFilter>
-  									<groupId>
-  										org.codehaus.mojo
-  									</groupId>
-  									<artifactId>
-  										license-maven-plugin
-  									</artifactId>
-  									<versionRange>
-  										[1.8,)
-  									</versionRange>
-  									<goals>
-  										<goal>
-  											update-project-license
-  										</goal>
-  										<goal>
-  											update-file-header
-  										</goal>
-  									</goals>
-  								</pluginExecutionFilter>
-  								<action>
-  									<ignore></ignore>
-  								</action>
-  							</pluginExecution>
-  						</pluginExecutions>
-  					</lifecycleMappingMetadata>
-  				</configuration>
-  			</plugin>
-  		</plugins>
-  	</pluginManagement>
   </build>
-  
+
   <dependencies>
 	<dependency>
 		<groupId>commons-codec</groupId>
@@ -172,8 +82,31 @@
   	<dependency>
 		<groupId>org.osgi</groupId>
 		<artifactId>org.osgi.core</artifactId>
-		<version>4.3.1</version>
   	</dependency>
+	
+	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+	</dependency>
+	
+    <dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <scope>test</scope>
+    </dependency>
+    <!--<dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <scope>test</scope>
+    </dependency>-->
   </dependencies>
-  <description>A timer using the crontab syntax and additional binary input to provide a resolution of one second (1000 ms / 1000 millis / 1s). The timer uses the whiteboard pattern to notify the clients. There are only a few dependencies to commons-codec, osgi and osgi-blueprint. The bundle 'org.i3xx.step/org.i3xx.step.clockmongo' provides a store for the clock configuration based on mongodb. The additional dependency is 'org.mongodb/mongo-java-driver'. The bundle 'org.i3xx.util/org.i3xx.util.whiteboard' can be used to avoid a dependency to bundles used. In other words, your bundle can use the clock but need no dependency to the bundle 'org.i3xx.step.clock'. Take a look at the description there.</description>
+  
 </project>
