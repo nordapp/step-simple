@@ -26,7 +26,6 @@ If you need another storage - just implement 'ClockPersistenceService' and write
   
   <properties>
     <property environment="env"/>
-    <workspace.home>${env.WORKSPACE}</workspace.home>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<step.clock.version>0.1.0-SNAPSHOT</step.clock.version>
   	<project.inceptionYear>2014</project.inceptionYear>
