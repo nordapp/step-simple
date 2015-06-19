@@ -2,10 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.i3xx.step</groupId>
   <artifactId>org.i3xx.step.clockmongo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <url>http://maven.apache.org</url>
   <name>NordApp OfficeBase :: clockmongo</name>
+  <description>A mongodb backed store for the time service. To avoid dependencies to the 'org.i3xx.step/org.i3xx.step.clock' bundle, this small service is written. The clock uses the whiteboard pattern to find this service.
+If you need another storage - just implement 'ClockPersistenceService' and write your own one.</description>
   
   <licenses>
     <license>
@@ -17,15 +19,14 @@
   </licenses>
   
   <parent>
-    <groupId>org.i3xx.project</groupId>
+    <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-project</artifactId>
-    <version>0.0.6-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
   </parent>
   
   <properties>
-  	<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-  	<project.name>NordApp OfficeBase :: clockmongo</project.name>
-  	<project.organizationName>I.D.S. DialogSysteme GmbH</project.organizationName>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<step.clock.version>0.1.0-SNAPSHOT</step.clock.version>
   	<project.inceptionYear>2014</project.inceptionYear>
   </properties>
   
@@ -51,8 +52,8 @@
 					<Import-Package>
 						com.mongodb,
 						org.apache.commons.codec.binary,
-						org.i3xx.step.clock.service.impl;version="0.0.1-SNAPSHOT",
-						org.i3xx.step.clock.service.model;version="0.0.1-SNAPSHOT",
+						org.i3xx.step.clock.service.impl;version="${step.clock.version}",
+						org.i3xx.step.clock.service.model;version="${step.clock.version}",
 						org.osgi.service.blueprint,
 						org.osgi.service.cm,
 						org.osgi.util.tracker,
@@ -66,54 +67,6 @@
 			</configuration>
 		</plugin>
 		
-		<plugin>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<configuration>
-				<systemPropertyVariables>
-					<workspace.home>${basedir}</workspace.home>
-				</systemPropertyVariables>
-			</configuration>		
-		</plugin>
-		
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>license-maven-plugin</artifactId>
-			<version>1.8</version>
-			<configuration>
-				<organizationName>${project.organizationName}</organizationName>
-				<inceptionYear>${project.inceptionYear}</inceptionYear>
-				<projectName>${project.name}</projectName>
-				<licenseName>apache_v2</licenseName>
-			</configuration>
-			<executions>
-				<execution>
-					<id>update-project-license</id>
-					<goals>
-						<goal>update-project-license</goal>
-					</goals>
-				</execution>
-				<execution>
-					<id>update-file-header</id>
-					<goals>
-						<goal>update-file-header</goal>
-					</goals>
-					<phase>process-sources</phase>
-					<configuration>
-						<roots>
-							<root>src/main/java</root>
-							<root>src/test/java</root>
-						</roots>
-					</configuration>
-				</execution>
-				<execution>
-					<id>download-licenses</id>
-					<goals>
-						<goal>download-licenses</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>		
-		
 	</plugins>
 	
   	<resources>
@@ -125,53 +78,12 @@
   		</resource>
   	</resources>
 
-  	<pluginManagement>
-  		<plugins>
-  			<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-  			<plugin>
-  				<groupId>org.eclipse.m2e</groupId>
-  				<artifactId>lifecycle-mapping</artifactId>
-  				<version>1.0.0</version>
-  				<configuration>
-  					<lifecycleMappingMetadata>
-  						<pluginExecutions>
-  							<pluginExecution>
-  								<pluginExecutionFilter>
-  									<groupId>
-  										org.codehaus.mojo
-  									</groupId>
-  									<artifactId>
-  										license-maven-plugin
-  									</artifactId>
-  									<versionRange>
-  										[1.8,)
-  									</versionRange>
-  									<goals>
-  										<goal>
-  											update-project-license
-  										</goal>
-  										<goal>
-  											update-file-header
-  										</goal>
-  									</goals>
-  								</pluginExecutionFilter>
-  								<action>
-  									<ignore></ignore>
-  								</action>
-  							</pluginExecution>
-  						</pluginExecutions>
-  					</lifecycleMappingMetadata>
-  				</configuration>
-  			</plugin>
-  		</plugins>
-  	</pluginManagement>
   </build>
   
   <dependencies>
   	<dependency>
   		<groupId>org.osgi</groupId>
-  		<artifactId>core</artifactId>
-  		<version>4.3.0</version>
+  		<artifactId>org.osgi.core</artifactId>
   	</dependency>
 	<dependency>
 		<groupId>org.mongodb</groupId>
@@ -182,9 +94,23 @@
 		<groupId>org.i3xx.step</groupId>
 		<artifactId>org.i3xx.step.clock</artifactId>
 		<type>bundle</type>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${step.clock.version}</version>
+	</dependency>
+	
+    <dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+	    <groupId>org.i3xx.eclipse.test</groupId>
+	    <artifactId>workspace</artifactId>
+	    <scope>test</scope>
 	</dependency>
   </dependencies>
-  <description>A mongodb backed store for the time service. To avoid dependencies to the 'org.i3xx.step/org.i3xx.step.clock' bundle, this small service is written. The clock uses the whiteboard pattern to find this service.
-If you need another storage - just implement 'ClockPersistenceService' and write your own one.</description>
 </project>
