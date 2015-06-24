@@ -36,6 +36,7 @@
     <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-project</artifactId>
     <version>0.1.0-SNAPSHOT</version>
+    <relativePath>/util/parent-project/pom.xml</relativePath>
   </parent>
 
   <dependencyManagement>
