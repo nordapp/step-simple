@@ -24,6 +24,10 @@ If you need another storage - just implement 'ClockPersistenceService' and write
     <version>0.1.0-SNAPSHOT</version>
   </parent>
   
+  <scm>
+  	<developerConnection>scm:git:https://github.com/nordapp/step-simple</developerConnection>
+  </scm>
+  
   <properties>
     <property environment="env"/>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
