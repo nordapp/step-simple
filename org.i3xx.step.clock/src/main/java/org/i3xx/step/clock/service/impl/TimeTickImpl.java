@@ -64,9 +64,9 @@ public class TimeTickImpl implements TimeTick {
 	BundleContext bundleContext;
 	
 	/**
-	 * @param bitMap
-	 * @param queue
-	 * @param threadPoolExecutor
+	 * @param bitMap The map of the symbols
+	 * @param queue The queue
+	 * @param executor The executor of the queue
 	 */
 	public TimeTickImpl(BitMap bitMap, BlockingQueue<Runnable> queue,
 			ExecutorService executor) {

@@ -50,7 +50,7 @@ public class BitMapImpl implements BitMap {
 	/**
 	 * Creates a BitMap
 	 * 
-	 * @param len The width of the map (default 256)
+	 * @param width The width of the map (default 256)
 	 */
 	public BitMapImpl(int width) {
 		bitsets = new HashMap<Integer, BitSet>();
@@ -117,7 +117,7 @@ public class BitMapImpl implements BitMap {
 	 * Gets the key that is mapped to the specified symbol.
 	 * 
 	 * @param symbol The symbol the key is mapped to.
-	 * @return
+	 * @return The key
 	 */
 	public Integer getKey(String symbol) {
 		return reverse.get(symbol);
@@ -127,7 +127,7 @@ public class BitMapImpl implements BitMap {
 	 * Returns the BitSet that is mapped to the key.
 	 * 
 	 * @param key The key the BitSet is mapped to.
-	 * @return
+	 * @return The BitSet
 	 */
 	public BitSet getBitSet(Integer key) {
 		return bitsets.get(key);
@@ -137,7 +137,7 @@ public class BitMapImpl implements BitMap {
 	 * Returns true if a symbol mapping exists.
 	 * 
 	 * @param symbol The symbol to look for
-	 * @return
+	 * @return True if the mapping exists, false otherwise
 	 */
 	public boolean exists(String symbol) {
 		return reverse.containsKey(symbol);
@@ -146,8 +146,8 @@ public class BitMapImpl implements BitMap {
 	/**
 	 * Returns true if a BitSet mapping exists.
 	 * 
-	 * @param set
-	 * @return
+	 * @param set The BitSet
+	 * @return True if the mapping exists, false otherwise
 	 */
 	public boolean exists(BitSet set) {
 		return bitsets.containsValue(set);
@@ -364,7 +364,7 @@ public class BitMapImpl implements BitMap {
 	 * 
 	 * @param set The BitSet to be matched
 	 * @param filter The filter BitSet
-	 * @return
+	 * @return The matching value
 	 */
 	private boolean groupMatch(BitSet set, BitSet filter) {
 		
@@ -445,7 +445,6 @@ public class BitMapImpl implements BitMap {
 	 * 
 	 * @param set The BitSet to remove
 	 * @param key The corresponding index of the mapping as key
-	 * @return The indexes of the mapping
 	 */
 	public void removeMapping(BitSet set, Integer key) {
 		

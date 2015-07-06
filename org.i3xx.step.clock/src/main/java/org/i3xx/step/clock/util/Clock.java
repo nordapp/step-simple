@@ -41,7 +41,6 @@ public class Clock implements Runnable {
 	private TimeTick timeTick;
 	
 	/**
-	 * @param map
 	 * @param tick
 	 */
 	public Clock(TimeTick tick) {

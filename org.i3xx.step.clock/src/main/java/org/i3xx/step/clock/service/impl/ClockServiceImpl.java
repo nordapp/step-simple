@@ -129,7 +129,7 @@ public class ClockServiceImpl implements ClockService {
 	 * Tests the symbol and returns true if it is already set, false otherwise.
 	 * 
 	 * @param symbol The symbol to use for the whiteboard pattern (must be unique).
-	 * @return
+	 * @return True if the bit relating to the symbol is set, false otherwise
 	 */
 	public boolean hasMapping(String symbol) {
 		return bitMap.exists(symbol);

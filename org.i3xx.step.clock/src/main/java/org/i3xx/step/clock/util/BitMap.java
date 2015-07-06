@@ -63,7 +63,7 @@ public interface BitMap {
 	 * Returns the BitSet that is mapped to the key.
 	 * 
 	 * @param key The key the BitSet is mapped to.
-	 * @return
+	 * @return The BitSet
 	 */
 	BitSet getBitSet(Integer key);
 	
@@ -71,7 +71,7 @@ public interface BitMap {
 	 * Gets the key that is mapped to the specified symbol.
 	 * 
 	 * @param symbol
-	 * @return
+	 * @return The key
 	 */
 	Integer getKey(String symbol);
 	
@@ -79,15 +79,15 @@ public interface BitMap {
 	 * Returns true if a symbol mapping exists.
 	 * 
 	 * @param symbol The symbol to look for
-	 * @return
+	 * @return True if the mapping exists, false otherwise
 	 */
 	boolean exists(String symbol);
 	
 	/**
 	 * Returns true if a BitSet mapping exists.
 	 * 
-	 * @param set
-	 * @return
+	 * @param set The BitSet
+	 * @return True if the mapping exists, false otherwise
 	 */
 	boolean exists(BitSet set);
 	
@@ -172,7 +172,6 @@ public interface BitMap {
 	 * 
 	 * @param set The BitSet to remove
 	 * @param key The corresponding index of the mapping as key
-	 * @return The indexes of the mapping
 	 */
 	void removeMapping(BitSet set, Integer key);
 	

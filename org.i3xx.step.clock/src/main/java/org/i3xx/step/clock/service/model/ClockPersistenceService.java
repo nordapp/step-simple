@@ -27,7 +27,7 @@ public interface ClockPersistenceService {
 	 * Gets a list of all symbols from the store
 	 * 
 	 * @param namespace The namespace
-	 * @return
+	 * @return The symbols relating to the namespace
 	 */
 	String[] getSymbols(String namespace);
 	
@@ -35,8 +35,8 @@ public interface ClockPersistenceService {
 	 * Adds a mapping to the store
 	 * 
 	 * @param namespace The namespace
-	 * @param stmt
-	 * @param symbol
+	 * @param stmt The time statement (e.g. crontab syntax)
+	 * @param symbol The symbol to be added (and called)
 	 */
 	void addMapping(String namespace, String stmt, String symbol);
 	
@@ -44,7 +44,7 @@ public interface ClockPersistenceService {
 	 * Removes a mapping from the store
 	 * 
 	 * @param namespace The namespace
-	 * @param symbol
+	 * @param symbol The symbol to be removed
 	 */
 	void removeMapping(String namespace, String symbol);
 	
@@ -52,8 +52,8 @@ public interface ClockPersistenceService {
 	 * Gets a mapping of a symbol
 	 * 
 	 * @param namespace The namespace
-	 * @param symbol
-	 * @return
+	 * @param symbol The symbol to be searched
+	 * @return The time statement
 	 */
 	String getMapping(String namespace, String symbol);
 }

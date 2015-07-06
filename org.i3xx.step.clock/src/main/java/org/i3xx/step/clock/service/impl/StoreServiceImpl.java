@@ -88,7 +88,7 @@ public class StoreServiceImpl implements StoreService {
 	/**
 	 * Gets the persistence service.
 	 * 
-	 * @return
+	 * @return The clock persistence service
 	 */
 	private ClockPersistenceService getService() {
 		ServiceReference<?> ref = bundleContext.getServiceReference(serviceName);

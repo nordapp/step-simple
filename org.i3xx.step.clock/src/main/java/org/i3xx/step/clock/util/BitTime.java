@@ -126,7 +126,7 @@ public class BitTime {
 	 * Creates a new BitTime object with the date. The date uses the same
 	 * time format as a cron job <tt>(minute, hour, day, month, day-of-week)</tt>.
 	 * 
-	 * @see 'http://troubadix.dn.fh-koeln.de/unix/cronjobs_syntax.html' 
+	 * 'http://troubadix.dn.fh-koeln.de/unix/cronjobs_syntax.html' 
 	 * 
 	 * @param date The date as a String
 	 */
@@ -137,13 +137,13 @@ public class BitTime {
 	
 	
 	/**
-	 * @param year
-	 * @param month
-	 * @param day
-	 * @param hour
-	 * @param minute
-	 * @param second
-	 * @param dayOfTheWeek
+	 * @param year The value
+	 * @param month The value
+	 * @param day The value
+	 * @param hour The value
+	 * @param minute The value
+	 * @param second The value
+	 * @param dayOfTheWeek The value
 	 */
 	public BitTime(int year, int month, int day, int hour, int minute, int second, int dayOfTheWeek) {
 		time = new BitSet();
@@ -167,7 +167,7 @@ public class BitTime {
 	/**
 	 * Gets the BitSet
 	 * 
-	 * @return
+	 * @return The BitSet
 	 */
 	public BitSet getTime() {
 		return time;
@@ -176,7 +176,7 @@ public class BitTime {
 	/**
 	 * Gets the BitSet as a Date
 	 * 
-	 * @return
+	 * @return The Date
 	 */
 	public Date getDate() {
 		int second = getSecond();
@@ -262,7 +262,7 @@ public class BitTime {
 	/**
 	 * Gets the second
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getSecond() {
 		BitSet s = time.get(0, 60);
@@ -284,7 +284,7 @@ public class BitTime {
 	/**
 	 * Gets the minute
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getMinute() {
 		BitSet s = time.get(60, 120);
@@ -306,7 +306,7 @@ public class BitTime {
 	/**
 	 * Gets the hour 0-23
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getHour() {
 		BitSet s = time.get(120, 144);
@@ -329,7 +329,7 @@ public class BitTime {
 	/**
 	 * Gets the day 1-31
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getDay() {
 		BitSet s = time.get(144, 175);
@@ -351,7 +351,7 @@ public class BitTime {
 	/**
 	 * Gets the month 0-11
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getMonth() {
 		BitSet s = time.get(175, 187);
@@ -381,7 +381,7 @@ public class BitTime {
 	/**
 	 * Gets the day of the week
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getDayOfTheWeek() {
 		BitSet s = time.get(187, 194);
@@ -397,6 +397,7 @@ public class BitTime {
 	
 	/**
 	 * Gets the bit of first
+	 * @return The bit
 	 */
 	public boolean isFirst() {
 		return time.get(194);
@@ -411,6 +412,7 @@ public class BitTime {
 	
 	/**
 	 * Gets the bit of ultimo
+	 * @return The bit
 	 */
 	public boolean isUltimo() {
 		return time.get(195);
@@ -425,6 +427,7 @@ public class BitTime {
 	
 	/**
 	 * Gets the bit of once
+	 * @return The bit
 	 */
 	public boolean isOnce() {
 		return time.get(196);
@@ -439,6 +442,7 @@ public class BitTime {
 	
 	/**
 	 * Gets the bit of immediate (boot time)
+	 * @return The bit
 	 */
 	public boolean isImmediate() {
 		return time.get(197);
@@ -459,7 +463,7 @@ public class BitTime {
 	/**
 	 * Gets the day of the week
 	 * 
-	 * @return
+	 * @return The value
 	 */
 	public int getYear() {
 		BitSet s = time.get(200, time.length()+1);

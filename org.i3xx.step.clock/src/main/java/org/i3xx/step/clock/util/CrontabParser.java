@@ -39,8 +39,7 @@ public class CrontabParser {
 	 * Parses a statement of the CronTab-Syntax
 	 * 
 	 * 
-	 * @param stmt minutes, hours, days, month, days-of-week
-	 * @see 'http://troubadix.dn.fh-koeln.de/unix/cronjobs_syntax.html'
+	 * 'http://troubadix.dn.fh-koeln.de/unix/cronjobs_syntax.html'
 	 */
 	public CrontabParser() {
 		
@@ -57,7 +56,7 @@ public class CrontabParser {
 	 * day-of-week ::= 0-7  (0 and 7 means Sunday)
 	 * 
 	 * @param stmt The statement to parse 
-	 * @return
+	 * @return The BitTime object
 	 */
 	public BitTime parseToBitTime(String stmt) {
 		
@@ -140,7 +139,7 @@ public class CrontabParser {
 	 * 
 	 * @param stmt The statement to parse
 	 * @param distance The distance (60: minute, 24:hour | 31: day | 12: month | 7: days-of-week)
-	 * @return
+	 * @return The values
 	 */
 	public int[] parseValue(String stmt, int distance) {
 		
@@ -215,7 +214,7 @@ public class CrontabParser {
 	 * Parses the statement to an int
 	 * 
 	 * @param stmt The statement to parse
-	 * @return
+	 * @return The integer
 	 */
 	private int toInteger(String stmt) {
 		return Integer.parseInt(stmt);
@@ -223,7 +222,7 @@ public class CrontabParser {
 	
 	/**
 	 * @param ii The result array
-	 * @return
+	 * @return The array
 	 */
 	public String print(int[] ii) {
 		StringBuffer buffer = new StringBuffer();
@@ -240,7 +239,7 @@ public class CrontabParser {
 	
 	/**
 	 * @param stmt The statement
-	 * @return
+	 * @return The String
 	 */
 	public String print(String stmt) {
 		String[] args = stmt.split("\\s");
