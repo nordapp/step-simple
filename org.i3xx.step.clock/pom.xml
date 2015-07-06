@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.i3xx.step</groupId>
   <artifactId>org.i3xx.step.clock</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.0</version>
   <packaging>bundle</packaging>
   <url>http://maven.apache.org</url>
   <name>NordApp OfficeBase :: clock</name>
@@ -30,7 +30,7 @@
   
   <scm>
   	<developerConnection>scm:git:https://github.com/nordapp/step-simple</developerConnection>
-  	<tag>org.i3xx.step.clock-0.0.0</tag>
+  	<tag>org.i3xx.step.clock-0.1.0</tag>
   </scm>
   
   <build>
@@ -46,8 +46,8 @@
 					<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 					<Bundle-Name>${project.name}</Bundle-Name>
 					<Bundle-Version>${project.version}</Bundle-Version>
-					<Bundle-Activator></Bundle-Activator>
-					<Embed-Dependency></Embed-Dependency>
+					<Bundle-Activator />
+					<Embed-Dependency />
 					<Export-Package>
 						org.i3xx.step.clock.service.impl,
 						org.i3xx.step.clock.service.model,
@@ -60,7 +60,7 @@
 						org.osgi.framework,
 						org.slf4j
 					</Import-Package>
-					<Private-Package></Private-Package>
+					<Private-Package />
 					<!--<Export-Service></Export-Service>-->
 				</instructions>
 			</configuration>
@@ -70,7 +70,7 @@
 	
   	<resources>
   		<resource>
-  			<directory></directory>
+  			<directory />
   			<includes>
   				<include>OSGI-INF/**/*.*</include>
   			</includes>
