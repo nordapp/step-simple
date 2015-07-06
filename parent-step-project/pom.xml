@@ -33,7 +33,7 @@
   </licenses>
   
   <scm>
-  	<developerConnection>scm:git:https://github.com/nordapp/step</developerConnection>
+  	<developerConnection>scm:git:https://github.com/nordapp/step-simple</developerConnection>
   	<tag>parent-step-project-0.0.0</tag>
   </scm>
   

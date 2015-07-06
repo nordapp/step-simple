@@ -21,11 +21,12 @@ If you need another storage - just implement 'ClockPersistenceService' and write
   <parent>
     <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-step-project</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
   </parent>
   
   <scm>
   	<developerConnection>scm:git:https://github.com/nordapp/step-simple</developerConnection>
+  	<tag>org.i3xx.step.clockmongo-0.0.0</tag>
   </scm>
   
   <properties>
