@@ -13,14 +13,14 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<project.inceptionYear>2014</project.inceptionYear>
-  	<step.clock.version>0.1.0-SNAPSHOT</step.clock.version>
-  	<step.clockmongo.version>0.1.0-SNAPSHOT</step.clockmongo.version>
-  	<step.fileinfo.version>0.1.0-SNAPSHOT</step.fileinfo.version>
-	<step.zero.version>0.1.0-SNAPSHOT</step.zero.version>
-	<step.uno.version>0.1.0-SNAPSHOT</step.uno.version>
-	<step.due.version>0.1.0-SNAPSHOT</step.due.version>
-	<step.mongo.version>0.1.0-SNAPSHOT</step.mongo.version>
-	<step.store.version>0.1.0-SNAPSHOT</step.store.version>
+  	<step.clock.version>[0.1.0,0.2)</step.clock.version>
+  	<step.clockmongo.version>[0.1.0,0.2)</step.clockmongo.version>
+  	<step.fileinfo.version>[0.1.0,0.2)</step.fileinfo.version>
+	<step.zero.version>[0.1.0,0.2)</step.zero.version>
+	<step.uno.version>[0.1.0,0.2)</step.uno.version>
+	<step.due.version>[0.1.0,0.2)</step.due.version>
+	<step.mongo.version>[0.1.0,0.2)</step.mongo.version>
+	<step.store.version>[0.1.0,0.2)</step.store.version>
   </properties>
   
   <licenses>
@@ -34,6 +34,7 @@
   
   <scm>
   	<developerConnection>scm:git:https://github.com/nordapp/step</developerConnection>
+  	<tag>parent-step-project-0.0.0</tag>
   </scm>
   
   <parent>
