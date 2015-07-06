@@ -83,6 +83,10 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 		mongo = null;
 	}
 
+	/**
+	 * @param nspc The namespace
+	 * @return The list of symbols as an array
+	 */
 	public String[] getSymbols(String nspc) {
 		logger.trace("Searches all symbols nspc:{}", nspc);
 		
@@ -96,6 +100,11 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 		return list.toArray(new String[list.size()]);
 	}
 
+	/**
+	 * @param nspc The namespace
+	 * @param stmt The time statement
+	 * @param symbol The symbol to add
+	 */
 	public void addMapping(String nspc, String stmt, String symbol) {
 		logger.trace("Adds the object nspc:{} symbol:{} stmt:{}", nspc, symbol, stmt);
 		
@@ -107,6 +116,10 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 		col.update(symbolQuery(symbol), dbo, false, false);
 	}
 
+	/**
+	 * @param nspc The namespace
+	 * @param symbol The symbol to remove
+	 */
 	public void removeMapping(String nspc, String symbol) {
 		logger.trace("Removes the object nspc:{}, symbol:{}", nspc, symbol);
 		
@@ -114,6 +127,11 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 		col.remove(symbolQuery(symbol));
 	}
 
+	/**
+	 * @param nspc The namespace
+	 * @param symbol The symbol
+	 * @return The time statement
+	 */
 	public String getMapping(String nspc, String symbol) {
 		logger.trace("Retrieves the object nspc:{}, symbol:{}", nspc, symbol);
 		
@@ -134,6 +152,7 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 	/**
 	 * @param nspc The namespace
 	 * @param symbol The symbol
+	 * @return The DBCollection
 	 */
 	private DBCollection ensureCollection(String nspc, String symbol) {
 		
@@ -153,7 +172,7 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 	 * @param col The collection to get the object from
 	 * @param symbol The symbol (key)
 	 * @param timeout The timeout or -1 for no timeout
-	 * @return
+	 * @return The DBObject
 	 */
 	private DBObject ensureObject(DBCollection col, String symbol) {
 		DBObject dbo = null;
@@ -178,7 +197,7 @@ public class ClockPersistenceServiceImpl implements ClockPersistenceService {
 	/**
 	 * Returns the query to get an object from the collection.
 	 * @param symbol The symbol
-	 * @return
+	 * @return The DBObject
 	 */
 	private DBObject symbolQuery(String symbol) {
 		return new BasicDBObject("symbol", symbol);
