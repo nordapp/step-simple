@@ -41,7 +41,6 @@
     <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-project</artifactId>
     <version>0.2.7</version>
-    <relativePath>/util/parent-project/pom.xml</relativePath>
   </parent>
 
   <dependencyManagement>
