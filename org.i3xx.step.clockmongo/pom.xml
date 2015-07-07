@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.i3xx.step</groupId>
   <artifactId>org.i3xx.step.clockmongo</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <url>http://maven.apache.org</url>
   <name>NordApp OfficeBase :: clockmongo</name>
@@ -26,7 +26,7 @@ If you need another storage - just implement 'ClockPersistenceService' and write
   
   <scm>
   	<developerConnection>scm:git:https://github.com/nordapp/step-simple</developerConnection>
-  	<tag>org.i3xx.step.clockmongo-0.1.0</tag>
+  	<tag>org.i3xx.step.clockmongo-0.0.0</tag>
   </scm>
   
   <properties>
