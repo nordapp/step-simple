@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.i3xx.step</groupId>
   <artifactId>org.i3xx.step.clockmongo</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.1-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <url>http://maven.apache.org</url>
   <name>NordApp OfficeBase :: clockmongo</name>
@@ -30,7 +30,7 @@ If you need another storage - just implement 'ClockPersistenceService' and write
   </scm>
   
   <properties>
-    <property environment="env"/>
+    <property environment="env" />
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<project.inceptionYear>2014</project.inceptionYear>
   </properties>
@@ -48,8 +48,8 @@ If you need another storage - just implement 'ClockPersistenceService' and write
 					<Bundle-SymbolicName>${project.groupId}.${project.artifactId}</Bundle-SymbolicName>
 					<Bundle-Name>${project.name}</Bundle-Name>
 					<Bundle-Version>${project.version}</Bundle-Version>
-					<Bundle-Activator></Bundle-Activator>
-					<Embed-Dependency></Embed-Dependency>
+					<Bundle-Activator />
+					<Embed-Dependency />
 					<Export-Package>
 						org.i3xx.step.clockmongo.service.impl,
 					</Export-Package>
@@ -66,7 +66,7 @@ If you need another storage - just implement 'ClockPersistenceService' and write
 						org.osgi.service.event,
 						org.slf4j
 					</Import-Package>
-					<Private-Package></Private-Package>
+					<Private-Package />
 					<!--<Export-Service></Export-Service>-->
 				</instructions>
 			</configuration>
@@ -76,7 +76,7 @@ If you need another storage - just implement 'ClockPersistenceService' and write
 	
   	<resources>
   		<resource>
-  			<directory></directory>
+  			<directory />
   			<includes>
   				<include>OSGI-INF/**/*.*</include>
   			</includes>
