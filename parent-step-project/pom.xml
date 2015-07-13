@@ -39,7 +39,7 @@
   <parent>
     <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-project</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.9</version>
   </parent>
 
   <dependencyManagement>
@@ -58,17 +58,17 @@
 		<dependency>
 		    <groupId>org.apache.karaf.jaas</groupId>
 		    <artifactId>org.apache.karaf.jaas.config</artifactId>
-		    <version>[3.0.2,3.0.4]</version>
+		    <version>[3.0.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.karaf.jaas</groupId>
 		    <artifactId>org.apache.karaf.jaas.modules</artifactId>
-		    <version>[3.0.2,3.0.4]</version>
+		    <version>[3.0.2</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.karaf.shell</groupId>
 		    <artifactId>org.apache.karaf.shell.console</artifactId>
-		    <version>[3.0.2,3.0.4]</version>
+		    <version>[3.0.2</version>
 		</dependency>
 		
 		<dependency>
