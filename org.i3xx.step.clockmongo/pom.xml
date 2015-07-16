@@ -21,7 +21,7 @@ If you need another storage - just implement 'ClockPersistenceService' and write
   <parent>
     <groupId>org.i3xx.parent</groupId>
     <artifactId>parent-step-project</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.9</version>
   </parent>
   
   <scm>
